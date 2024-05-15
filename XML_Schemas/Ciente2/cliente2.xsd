@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="listaclientes" type="tipoListaClientes"/>
+        <xsd:complexType name="tipoListaClientes">
+            <xsd:complexContent>
+                <xsd:restriction base="xsd:anyType">
+                <xsd:sequence>
+                    <xsd:element name="cliente" type="tipoCliente" maxOccurs="unbounded"/>
+                </xsd:sequence>
+             </xsd:restriction>
+            </xsd:complexContent>
+            </xsd:complexType>
+        <xsd:complexType name="tipoCliente">
+            <xsd:complexContent>
+                <xsd:restriction base="xsd:anyType">
+                <xsd:sequence>      
+                    <xsd:element name="cif" type="tipoCif"/>
+                    <xsd:element name="nombre" type="xsd:string"/>
+                    <xsd:element name="plazo" type="xsd:unsignedInt" minOccurs="0"/>
+                </xsd:sequence>
+                </xsd:restriction>
+            </xsd:complexContent>
+        </xsd:complexType>
+        <xsd:simpleType name="tipoCif">
+            <xsd:restriction base="xsd:string">
+                <xsd:pattern value="[0-9]{8}[A-Z]"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+        <xsd:simpleType name="tipoPlazo">
+            <xsd:restriction base="xsd:unsignedInt"/>
+        </xsd:simpleType>
+</xsd:schema>

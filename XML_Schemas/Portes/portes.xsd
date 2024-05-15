@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Definición del tipo para cantidad -->
+  <xs:simpleType name="cantidadType">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Definición del tipo para codigoreceptor -->
+  <xs:simpleType name="codigoreceptorType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{3}-[A-Za-z]{3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Definición del tipo para distancia -->
+<xs:complexType name="distanciaType">
+  <xs:simpleContent>
+    <xs:extension base="distanciaPositivaType">
+      <xs:attribute name="unidad" type="xs:string" use="required"/>
+    </xs:extension>
+  </xs:simpleContent>
+</xs:complexType>
+
+<xs:simpleType name="distanciaPositivaType">
+  <xs:restriction base="xs:unsignedShort">
+    <xs:minExclusive value="0"/>
+  </xs:restriction>
+</xs:simpleType>
+
+  <!-- Definición del tipo para transportista -->
+  <xs:simpleType name="transportistaType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="T1"/>
+      <xs:enumeration value="T2"/>
+      <xs:enumeration value="T3"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Definición del tipo para coste -->
+  <xs:simpleType name="costeType">
+    <xs:restriction base="xs:unsignedShort">
+      <xs:minExclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Definición del tipo para entrega -->
+    <xs:complexType name="entregaType">
+      <xs:sequence>
+        <xs:element name="transportista" type="transportistaType"/>
+        <xs:element name="distancia" type="distanciaType"/>          
+      </xs:sequence>
+      <xs:attribute name="receptor" type="xs:string" use="required"/>
+      <xs:attribute name="coste" type="costeType" use="required"/>
+    </xs:complexType>
+
+  <!-- Definición del tipo para recepcion -->
+    <xs:complexType name="recepcionType">
+      <xs:sequence>
+        <xs:element name="producto" type="xs:string"/>
+        <xs:element name="cantidad" type="cantidadType"/>
+        <xs:element minOccurs="0" name="codigoreceptor" type="codigoreceptorType"/>
+      </xs:sequence>
+    </xs:complexType>
+
+  <!-- Definición del elemento portes -->
+  <xs:element name="portes">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="recepcion" type="recepcionType"/>
+        <xs:element name="entrega" type="entregaType"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

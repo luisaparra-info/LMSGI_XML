@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Definición atributo 'codigo' -->
+  <xs:simpleType name="codigoType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z]{3}[0-9]{3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Definición atributo 'habitual' -->
+  <xs:simpleType name="habitualType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="true"/>
+      <xs:enumeration value="false"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Definición  atributo 'cantidad' -->
+  <xs:simpleType name="cantidadType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="1000"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Definición  elemento 'cliente' -->
+  <xs:element name="cliente">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="codigo" type="codigoType" use="required"/>
+          <xs:attribute name="habitual" type="habitualType" use="optional"/>
+          <xs:attribute name="cantidad" type="cantidadType" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

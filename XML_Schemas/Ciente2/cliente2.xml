@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<listaclientes>
+<cliente>
+<cif>01234567D</cif>
+<nombre>Juan Sanchez</nombre>
+</cliente>
+<cliente>
+<cif>05676554A</cif>
+<nombre>Pedro Diaz</nombre>
+<plazo>45</plazo>
+</cliente>
+</listaclientes>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cliente xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="cliente.xsd" codigo="ABC123" habitual="true" cantidad="500">Información del cliente</cliente>

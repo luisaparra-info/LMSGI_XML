@@ -1,0 +1,16 @@
+<portes>
+    <recepcion>
+        <producto>Fruta</producto>
+        <cantidad>125.5</cantidad>
+        <codigoreceptor>333-AZT</codigoreceptor>
+    </recepcion>
+    <entrega receptor="Mercados SL" coste="1321">
+        <transportista>T2</transportista>
+        <distancia unidad="millas">468</distancia>
+    </entrega>
+    <recepcion>
+        <producto>Verdura</producto>
+        <cantidad>250</cantidad>
+        <!-- El codigo de receptor no se usó aquí -->
+    </recepcion>
+</portes>

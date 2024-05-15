@@ -1,0 +1,30 @@
+<!--Obligatorio el tener fechaGeneracion-->
+<articulos fechageneracion="2018-03-01">
+    <!--El atributo codigo es optativo siempre-->
+    <monitor codigo="AAA-DDD-222">
+        <!--Descripcion obligatoria-->
+        <descripcion>Monitor de x pulgadas...</descripcion>
+        <resolucion>
+            <ancho>1920</ancho>
+            <alto>1400</alto>
+        </resolucion>
+    </monitor>
+    <raton>
+        <!--Descripcion obligatoria-->
+        <descripcion>Raton ergonomico...</descripcion>
+        <!--La unidad es g o cg-->
+        <peso unidad="g">100</peso>
+    </raton>
+    <teclado codigo="DDD-XXX-111">
+        <!---Descripcion obligatoria-->
+        <descripcion>Teclado estándar</descripcion>
+    </teclado>
+    <monitor codigo="CCC-GGG-666">
+        <!--Descripcion obligatoria-->
+        <descripcion>Monitor de x pulgadas...</descripcion>
+        <resolucion>
+            <ancho>1400</ancho>
+            <alto>1000</alto>
+        </resolucion>
+    </monitor>
+</articulos>

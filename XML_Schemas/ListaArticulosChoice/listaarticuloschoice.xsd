@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="articulos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="monitor">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="descripcion" type="xs:string" />
+                <xs:element name="resolucion">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="ancho" type="xs:unsignedShort" />
+                      <xs:element name="alto" type="xs:unsignedShort" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+              <xs:attribute name="codigo" type="xs:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="raton">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="descripcion" type="xs:string" />
+                <xs:element name="peso">
+                  <xs:complexType>
+                    <xs:simpleContent>
+                      <xs:extension base="xs:unsignedByte">
+                        <xs:attribute name="unidad" type="xs:string" use="required" />
+                      </xs:extension>
+                    </xs:simpleContent>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="teclado">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="descripcion" type="xs:string" />
+              </xs:sequence>
+              <xs:attribute name="codigo" type="xs:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="fechageneracion" type="xs:date" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
